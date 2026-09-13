@@ -75,7 +75,7 @@ Notes:
 Install a link to your checkout instead of the npm package — every change in the checkout is live after a restart:
 
 ```sh
-git clone <your-fork-url> && cd dsh-plugin-terminal
+git clone https://github.com/DavidCastilloAlvarado/dsh-chinchilla-plugin-terminal.git && cd dsh-chinchilla-plugin-terminal
 npm install                                   # also runs npm run build (prepare)
 dsh plugin --profile web add /absolute/path/to/dsh-plugin-terminal
 dsh web

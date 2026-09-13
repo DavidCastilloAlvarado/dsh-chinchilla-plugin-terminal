@@ -37,11 +37,11 @@
   "author": "David Castillo Alvarado <dcastilloa@uni.pe>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DavidCastilloAlvarado/dsh-plugin-terminal.git"
+    "url": "git+https://github.com/DavidCastilloAlvarado/dsh-chinchilla-plugin-terminal.git"
   },
-  "homepage": "https://github.com/DavidCastilloAlvarado/dsh-plugin-terminal#readme",
+  "homepage": "https://github.com/DavidCastilloAlvarado/dsh-chinchilla-plugin-terminal#readme",
   "bugs": {
-    "url": "https://github.com/DavidCastilloAlvarado/dsh-plugin-terminal/issues"
+    "url": "https://github.com/DavidCastilloAlvarado/dsh-chinchilla-plugin-terminal/issues"
   },
   "keywords": [
     "dsh",
