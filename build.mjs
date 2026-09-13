@@ -42,11 +42,11 @@ const factoryBody = [
 
 const finalJs = [
   "/**",
-  " * dsh-plugin-terminal - client bundle (xterm.js edition, self-contained).",
+  " * dsh-chinchilla-plugin-terminal - client bundle (xterm.js edition, self-contained).",
   " * Built by build.mjs from src/client-main.js. Do not edit by hand.",
   " */",
   "window.__ModuleLoader__.load({",
-  "  id: 'dsh-plugin-terminal',",
+  "  id: 'dsh-chinchilla-plugin-terminal',",
   "  factory: (require) => {",
   "    " + factoryBody,
   "  },",

@@ -1,7 +1,8 @@
-# dsh-plugin-terminal bundle patch - mounts the terminal panel plugin as a
-# profile layer. Declared by package.json's dsh.bundle.patch: installing the
-# package via `dsh plugin --profile web add dsh-plugin-terminal` reconciles it
-# into dsh.profile.bundles and this layer is applied automatically.
+# dsh-chinchilla-plugin-terminal bundle patch - mounts the terminal panel
+# plugin as a profile layer. Declared by package.json's dsh.bundle.patch:
+# installing the package via `dsh plugin --profile web add
+# dsh-chinchilla-plugin-terminal` reconciles it into dsh.profile.bundles and
+# this layer is applied automatically.
 - insert:
   - id: terminal-panel
-    name: dsh-plugin-terminal
+    name: dsh-chinchilla-plugin-terminal

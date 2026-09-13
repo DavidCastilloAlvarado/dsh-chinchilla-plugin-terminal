@@ -1,5 +1,5 @@
 /**
- * dsh-plugin-terminal - shortcut-string parsing for the panel toggle.
+ * dsh-chinchilla-plugin-terminal - shortcut-string parsing for the panel toggle.
  *
  * Pure module (no DOM, no React) so the tests can load it in isolation.
  *

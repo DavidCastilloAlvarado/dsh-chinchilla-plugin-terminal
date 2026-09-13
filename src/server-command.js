@@ -1,5 +1,5 @@
 /**
- * dsh-plugin-terminal - pure command-line helpers for the host half.
+ * dsh-chinchilla-plugin-terminal - pure command-line helpers for the host half.
  *
  * Kept free of harness imports so the tests can load it in isolation.
  */
