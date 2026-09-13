@@ -1,0 +1,72 @@
+{
+  "name": "dsh-chinchilla-plugin-terminal",
+  "version": "0.2.0",
+  "description": "Bottom terminal panel plugin for DeepSeek Harness Web GUI (node-pty powered, works on Windows via ConPTY)",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ],
+      "immediately": false
+    }
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-web-links": "0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "node-pty": "^1.1.0",
+    "ws": "^8.21.3"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-settings": "^0.1.0-rc.7",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "license": "MIT",
+  "author": "David Castillo Alvarado <dcastilloa@uni.pe>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidCastilloAlvarado/dsh-plugin-terminal.git"
+  },
+  "homepage": "https://github.com/DavidCastilloAlvarado/dsh-plugin-terminal#readme",
+  "bugs": {
+    "url": "https://github.com/DavidCastilloAlvarado/dsh-plugin-terminal/issues"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "terminal",
+    "pty",
+    "plugin",
+    "xterm"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node tests/unit-config.mjs && node tests/ws-origin-check.mjs && node tests/smoke-env.mjs && node tests/cwd-persist.mjs && node tests/restart-inherit.mjs && node tests/persist-restart.mjs",
+    "prepare": "node build.mjs"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-brand": "^0.1.0-rc.8",
+    "@deepseek-ai/dsh-invariants": "^0.1.0-rc.8",
+    "@deepseek-ai/dsh-settings": "^0.1.0-rc.7",
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "esbuild": "^0.28.2"
+  },
+  "files": [
+    "lib",
+    "docs",
+    "cordis.patch.yml"
+  ]
+}

@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 22]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Syntax check
+        run: |
+          for f in lib/index.js src/client-main.js build.mjs; do
+            node --check "$f"
+          done
+
+      - name: Build client bundle
+        run: node build.mjs
+
+      - name: Tests
+        run: npm test
