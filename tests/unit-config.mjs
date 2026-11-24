@@ -5,7 +5,7 @@
  * Run: node tests/unit-config.mjs
  */
 import assert from "node:assert/strict";
-import { splitCommandLine, pickFirst } from "../src/server-command.js";
+import { splitCommandLine, pickFirst } from "../lib/server-command.js";
 import { parseShortcut, matchesShortcut } from "../src/shortcut.js";
 
 let passed = 0;

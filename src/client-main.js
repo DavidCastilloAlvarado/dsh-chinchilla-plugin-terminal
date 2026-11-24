@@ -386,7 +386,12 @@ function TermPane({ tab, active, onExit }) {
  * draggable panel. Ctrl+` toggles. Height persists across reloads. */
 function TerminalPanel(props) {
   const { useEffect, useRef, useState, useCallback } = React;
-  const { sessionId, useSessions, useWorkspaces } = props ?? {};
+  /* The slot framework hands every session-scoped entry the session id and the
+   * list selector hooks as standard props; the dock owner face carries the
+   * Session snapshot too. Prefer the framework id and fall back to the face so
+   * the panel keeps working if either channel changes. */
+  const { sessionId: frameworkSessionId, useSessions, useWorkspaces, session } = props ?? {};
+  const sessionId = frameworkSessionId ?? session?.sessionId;
   const [open, setOpen] = useState(false);
   /** cwd of the DSH session this panel is mounted in. Prefer the workspace
    *  membership (what the user sees on screen - the workspace the session
@@ -394,8 +399,8 @@ function TerminalPanel(props) {
    *  (subagent rows carry no cwd of their own). New tabs are spawned there
    *  instead of the server's process.cwd(), so a server restart no longer
    *  strands new terminals in the launch directory. The owning sessionId is
-   *  also sent with every create request so the host can fall back to the
-   *  workspace registry when all client-side lookups come up empty. */
+   *  also sent with every create request so the host can resolve the session's
+   *  directory when all client-side lookups come up empty. */
   const workspacePath = useWorkspaces((s) =>
     Array.isArray(s?.items)
       ? s.items.find((w) => Array.isArray(w?.sessionIds) && w.sessionIds.includes(sessionId))?.path
@@ -566,8 +571,8 @@ function TerminalPanel(props) {
   }, []);
 
   /* + button: new session in a new tab, spawned in the current workspace.
-   *  sessionId rides along so the host can resolve the workspace path through
-   *  the DSH workspace registry when the client-side cwd lookup failed. */
+   *  sessionId rides along so the host can resolve the session's directory
+   *  when the client-side cwd lookup failed. */
   const newTab = useCallback(async () => {
     setBusy(true);
     try {

@@ -1,6 +1,6 @@
 {
   "name": "dsh-chinchilla-plugin-terminal",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "description": "Bottom terminal panel plugin for DeepSeek Harness Web GUI (node-pty powered, works on Windows via ConPTY)",
   "type": "module",
   "main": "lib/index.js",
@@ -30,8 +30,7 @@
     "ws": "^8.21.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-settings": "^0.1.0-rc.7",
-    "@deepseek-ai/schemastery": "^3.18.1"
+    "@deepseek-ai/schemastery": "^3.20.0-alpha.1"
   },
   "license": "MIT",
   "author": "David Castillo Alvarado <dcastilloa@uni.pe>",
@@ -60,13 +59,15 @@
     "@deepseek-ai/cordis": "^4.0.1",
     "@deepseek-ai/dsh-brand": "^0.1.0-rc.8",
     "@deepseek-ai/dsh-invariants": "^0.1.0-rc.8",
-    "@deepseek-ai/dsh-settings": "^0.1.0-rc.7",
-    "@deepseek-ai/schemastery": "^3.18.1",
+    "@deepseek-ai/schemastery": "^3.20.0-alpha.1",
     "esbuild": "^0.28.2"
   },
   "files": [
     "lib",
     "docs",
     "cordis.patch.yml"
-  ]
+  ],
+  "engines": {
+    "dsh": "^0.2.3-alpha.2"
+  }
 }
